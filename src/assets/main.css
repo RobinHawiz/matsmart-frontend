@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  /* Font-family styles */
+  --font-unbounded: "Unbounded", serif;
+  --font-space-grotesk: "Space Grotesk", serif;
+
+  /* Color styles */
+  --color-primary-brand-1: hsla(179deg 90% 30%); /* Buttons, icons, details*/
+  --color-primary-brand-2: hsla(179deg 90% 23%); /* Hovers */
+  --color-primary-light-1: hsla(0deg 0% 100%); /* Big UI element bgs, text */
+  --color-primary-light-2: hsla(180deg 38% 97%); /* Body bg */
+  --color-primary-light-3: hsla(
+    180deg 29% 90%
+  ); /* Big UI element borders, small UI element bgs */
+  --color-primary-dark-1: hsla(178deg 40% 15%); /* Text */
+  --color-primary-dark-2: hsla(178deg 30% 25%); /* Deemphasized text and nav */
+  --color-primary-dark-3: hsla(180deg 20% 35%); /* Input border */
+
+  /* Font-size styles */
+  --text-h1: 4.313rem;
+  --text-h1-mobile: 2.5rem;
+  --text-h2: 3.438rem;
+  --text-h2-mobile: 2rem;
+  --text-h3: 1.75rem;
+  --text-h4: 1.25rem;
+  --text-body-big: 1.25rem;
+  --text-body: 1.125rem;
+  --text-body-small: 1rem;
+
+  /* Line-height styles */
+  --leading-body: 160%;
+
+  /* Shadow styles */
+  --shadow-color: 180deg 11% 60%;
+  --shadow-elevation-low:
+    0px 1px 1.1px hsl(var(--shadow-color) / 0.34),
+    0px 1.7px 1.9px -1.2px hsl(var(--shadow-color) / 0.34),
+    0px 4px 4.5px -2.5px hsl(var(--shadow-color) / 0.34);
+  --shadow-elevation-medium:
+    0px 1px 1.1px hsl(var(--shadow-color) / 0.36),
+    0px 3.3px 3.7px -0.8px hsl(var(--shadow-color) / 0.36),
+    0px 8.2px 9.2px -1.7px hsl(var(--shadow-color) / 0.36),
+    0px 20px 22.5px -2.5px hsl(var(--shadow-color) / 0.36);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-space-grotesk);
+    background-color: var(--color-primary-light-2);
+    color: var(--color-secondary);
+  }
+}
+
+@utility flex-center {
+  @apply flex items-center justify-center;
+}

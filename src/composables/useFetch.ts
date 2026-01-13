@@ -10,7 +10,12 @@ export async function useFetch(
 }
 
 export async function useGetData<T>(url: string): Promise<T> {
-  const res = await useFetch(url);
+  const options: RequestInit = {
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+  };
+  const res = await useFetch(url, options);
   return (await res.json()) as T;
 }
 
@@ -33,6 +38,18 @@ export async function usePostData<T>(url: string, payload: T): Promise<string> {
 export async function useDeleteData(url: string): Promise<void> {
   const options: RequestInit = {
     method: "DELETE",
+  };
+  await useFetch(url, options);
+}
+
+export async function usePatchData<T>(url: string, payload: T): Promise<void> {
+  const options: RequestInit = {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+    body: JSON.stringify(payload),
   };
   await useFetch(url, options);
 }

@@ -7,9 +7,11 @@ import useDelay from "@/composables/useDelay";
 import Loader from "@/components/Loader.vue";
 import Error from "@/components/Error.vue";
 import user from "@/assets/images/user.svg";
+import $toast from "@/composables/useToast";
 
 const userApi = new UserApi();
 const router = useRouter();
+const toast = $toast;
 
 const state = reactive({
   isLoading: false,
@@ -39,6 +41,7 @@ async function handleSubmit() {
     state.isLoading = true;
     await useDelay(700);
     localStorage.setItem("token", await userApi.loginUser(form));
+    toast.info("Inloggningen lyckades. Välkommen!");
     router.push({ name: "Lager" });
   } catch (err) {
     state.isLoading = false;

@@ -13,6 +13,7 @@
   --color-primary-light-3: hsla(
     180deg 29% 90%
   ); /* Big UI element borders, small UI element bgs */
+  --color-primary-light-4: hsla(180deg 29% 83%); /* Small UI element hovers */
   --color-primary-dark-1: hsla(178deg 40% 15%); /* Text */
   --color-primary-dark-2: hsla(178deg 30% 25%); /* Deemphasized text and nav */
   --color-primary-dark-3: hsla(180deg 20% 35%); /* Input border */

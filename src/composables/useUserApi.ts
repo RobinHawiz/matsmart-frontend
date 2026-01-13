@@ -20,7 +20,7 @@ export class UserApi {
   }
 
   async validateToken(): Promise<void> {
-    await useFetch(`${this.API_BASE_URL}/users/login`, {
+    await useFetch(`${this.API_BASE_URL}/auth`, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },

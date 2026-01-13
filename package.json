@@ -35,6 +35,7 @@
   "dependencies": {
     "vue": "^3.5.26",
     "vue-router": "^4.6.4",
-    "vue-spinner": "^1.0.4"
+    "vue-spinner": "^1.0.4",
+    "vue-toast-notification": "^3.1.3"
   }
 }

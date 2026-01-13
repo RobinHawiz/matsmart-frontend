@@ -54,7 +54,9 @@ async function handleSubmit() {
       <h3 class="font-unbounded text-h3 text-primary-dark-1 text-center">
         Logga in
       </h3>
-      <div class="leading-body text-body flex w-62.5 flex-col">
+      <div
+        class="leading-body text-body text-primary-dark-1 flex w-62.5 flex-col"
+      >
         <label for="username">Användarnamn</label>
         <input
           class="border-primary-dark-3 text-primary-dark-2 rounded-lg border border-solid px-2.5 py-1.25"
@@ -65,7 +67,9 @@ async function handleSubmit() {
           required
         />
       </div>
-      <div class="leading-body text-body flex w-62.5 flex-col">
+      <div
+        class="leading-body text-body text-primary-dark-1 flex w-62.5 flex-col"
+      >
         <label for="password">Lösenord</label>
         <input
           class="border-primary-dark-3 text-primary-dark-2 rounded-lg border border-solid px-2.5 py-1.25"

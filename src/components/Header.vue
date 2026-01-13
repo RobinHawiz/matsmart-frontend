@@ -28,7 +28,7 @@ import { RouterLink } from "vue-router";
           <RouterLink
             activeClass="after:opacity-100"
             class="after:bg-primary-dark-3 text-primary-dark-2 relative after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-full after:opacity-0 after:transition-all after:duration-200 hover:after:translate-y-0.5 hover:after:opacity-100"
-            to="/"
+            to="/logout"
             >Logga ut</RouterLink
           >
         </li>

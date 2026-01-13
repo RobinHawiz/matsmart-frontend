@@ -3,16 +3,16 @@ import { ref, type PropType } from "vue";
 import type { ItemEntity } from "@/models/item";
 import { ItemApi } from "@/composables/useItemApi";
 import useDelay from "@/composables/useDelay";
+import $toast from "@/composables/useToast";
 import Loader from "@/components/Loader.vue";
-import Error from "@/components/Error.vue";
 import update from "@/assets/images/update.svg";
 import minus from "@/assets/images/minus.svg";
 import plus from "@/assets/images/plus.svg";
 
 const emit = defineEmits(["updateItemAmount"]);
+const toast = $toast;
 const isLoading = ref(false);
 let counter = ref(0);
-const error = ref("");
 
 const itemApi = new ItemApi();
 defineProps({
@@ -32,15 +32,13 @@ async function updateItemAmount(
   currentAmount: number,
   amountToChange: number,
 ) {
-  error.value = "";
-
   if (currentAmount + amountToChange < 0) {
-    error.value = `Otillräcklig lagermändg. Nuvarande: ${currentAmount}, begärt: ${amountToChange}`;
+    toast.error(`Otillräckligt lagersaldo. Tillgängligt: ${currentAmount} st.`);
     return;
   }
 
   if (amountToChange === 0) {
-    error.value = `Ange ett antal att ändra lagersaldot med.`;
+    toast.error("Ange ett antal att lägga till eller ta bort.");
     return;
   }
 
@@ -52,7 +50,9 @@ async function updateItemAmount(
     emit("updateItemAmount", index, amountToChange);
   } catch (err) {
     console.log(err);
-    error.value = err as string;
+    toast.error(
+      "Ett oväntat fel inträffade. Försök igen eller kontakta support.",
+    );
   } finally {
     isLoading.value = false;
   }
@@ -117,7 +117,6 @@ async function updateItemAmount(
         Uppdatera saldo
       </button>
       <Loader class="mt-4" :is-loading="isLoading" />
-      <Error :error="error" />
     </article>
   </li>
 </template>

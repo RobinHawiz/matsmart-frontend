@@ -51,6 +51,14 @@
     background-color: var(--color-primary-light-2);
     color: var(--color-secondary);
   }
+
+  .v-toast {
+    @apply px-3! md:px-8!;
+  }
+
+  .v-toast__item {
+    @apply self-center! md:self-end!;
+  }
 }
 
 @utility flex-center {

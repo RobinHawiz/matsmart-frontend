@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { reactive, ref } from "vue";
+import { reactive } from "vue";
 import { useRouter } from "vue-router";
 import type { UserPayload } from "@/models/user";
 import { UserApi } from "@/composables/useUserApi";
 import useDelay from "@/composables/useDelay";
 import Loader from "@/components/Loader.vue";
-import Error from "@/components/Error.vue";
 import user from "@/assets/images/user.svg";
 import $toast from "@/composables/useToast";
 
@@ -22,18 +21,14 @@ const form: UserPayload = reactive({
   password: "",
 });
 
-const error = ref("");
-
 async function handleSubmit() {
-  error.value = "";
-
   if (form.username.length < 1 || form.username.length > 50) {
-    error.value = "Användarnamnet måste vara mellan 1 och 50 tecken";
+    toast.error("Användarnamnet måste vara mellan 1 och 50 tecken");
     return;
   }
 
   if (form.password.length < 1 || form.password.length > 100) {
-    error.value = "Lösenordet måste vara mellan 1 och 100 tecken";
+    toast.error("Lösenordet måste vara mellan 1 och 100 tecken");
     return;
   }
 
@@ -46,7 +41,7 @@ async function handleSubmit() {
   } catch (err) {
     state.isLoading = false;
     console.log(err);
-    error.value = "Felaktigt användarnamn eller lösenord";
+    toast.error("Felaktigt användarnamn eller lösenord");
   }
 }
 </script>
@@ -93,7 +88,6 @@ async function handleSubmit() {
         </button>
       </div>
       <Loader :is-loading="state.isLoading" />
-      <Error :error="error" />
     </form>
   </div>
 </template>

@@ -15,6 +15,7 @@ const itemApi = new ItemApi();
 const router = useRouter();
 const form = ref({} as ItemPayload);
 form.value.imageUrl = "/images/placeholder.png";
+const isValidatingToken = ref(true);
 const isLoadingRequest = ref(false);
 const toast = useToast();
 
@@ -62,16 +63,21 @@ onMounted(async () => {
   try {
     await useDelay(700);
     await userApi.validateToken();
+    isValidatingToken.value = false;
   } catch (err) {
     console.log(err);
     router.push({ name: "Login" });
     toast.error("Du är utloggad. Logga in för att fortsätta.");
+    return;
   }
 });
 </script>
 
 <template>
-  <div class="w-full px-3">
+  <!-- Show loading spinner while validating token -->
+  <Loader :is-loading="isValidatingToken" />
+  <!-- Show form if token validation succeeded -->
+  <div v-if="!isValidatingToken" class="w-full px-3">
     <form
       @submit.prevent="createItem"
       class="flex-center shadow-elevation-medium bg-primary-light-1 mx-auto w-full max-w-190 flex-col rounded-[0.625rem] py-4.5"

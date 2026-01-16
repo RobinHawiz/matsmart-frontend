@@ -89,6 +89,7 @@ onMounted(async () => {
     console.log(err);
     router.push({ name: "Login" });
     toast.error("Du är utloggad. Logga in för att fortsätta.");
+    return;
   }
   try {
     const { id, ...payload } = await itemApi.getOneItem(

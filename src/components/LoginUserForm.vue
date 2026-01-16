@@ -82,7 +82,6 @@ async function handleSubmit() {
       </div>
       <div>
         <button
-          :aria-disabled="state.isLoading"
           :disabled="state.isLoading"
           class="bg-primary-brand-1 text-primary-light-1 leading-body hover:bg-primary-brand-2 flex cursor-pointer gap-2 rounded-full px-3 py-1.5 transition-colors duration-200 ease-in-out"
           type="submit"

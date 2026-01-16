@@ -37,7 +37,9 @@ const router = createRouter({
 });
 
 router.beforeEach((to) => {
-  document.title = `Matsmart | ${to.name as string}`;
+  document.title = `Matsmart | ${(to.name as string)
+    .match(/[A-Z][a-z]+/g)!
+    .join(" ")}`;
 });
 
 export default router;

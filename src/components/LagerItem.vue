@@ -111,6 +111,7 @@ async function updateItemAmount(
       </div>
       <button
         @click="updateItemAmount(item.id, index, item.amount, counter)"
+        :disabled="isLoading"
         class="bg-primary-brand-1 text-primary-light-1 leading-body hover:bg-primary-brand-2 flex cursor-pointer items-center gap-2 rounded-full px-3 py-1.5 transition-colors duration-200 ease-in-out"
       >
         <img :src="update" aria-hidden="true" class="h-3.25 w-3.25" />

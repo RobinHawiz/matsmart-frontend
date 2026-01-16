@@ -112,6 +112,7 @@ onMounted(async () => {
   <!-- Show item list when done loading the form -->
   <div v-if="!isLoadingForm" class="w-full px-3">
     <form
+      @submit.prevent="updateItem"
       class="flex-center shadow-elevation-medium bg-primary-light-1 mx-auto w-full max-w-190 flex-col rounded-[0.625rem] py-4.5"
     >
       <div class="flex w-full max-w-135.25 flex-col gap-3.75 px-3">
@@ -200,9 +201,9 @@ onMounted(async () => {
         </div>
         <div class="flex justify-center gap-3.75">
           <button
-            @click.prevent="updateItem"
             :disabled="isLoadingRequest"
             class="bg-primary-brand-1 text-primary-light-1 leading-body hover:bg-primary-brand-2 flex cursor-pointer items-center gap-2 rounded-full px-3 py-1.5 transition-colors duration-200 ease-in-out"
+            type="submit"
           >
             <img :src="update" aria-hidden="true" class="h-3.25 w-3.25" />
             Uppdatera

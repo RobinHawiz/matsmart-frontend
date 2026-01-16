@@ -62,7 +62,7 @@ async function updateItemAmount(
 <template>
   <li>
     <article
-      class="bg-primary-light-1 border-primary-light-3 hover:shadow-elevation-low flex-center w-full flex-col gap-3 rounded-lg border border-solid p-5 transition-all duration-200"
+      class="bg-primary-light-1 border-primary-light-3 hover:shadow-elevation-low flex-center mx-auto w-full flex-col gap-3 rounded-lg border border-solid p-5 transition-all duration-200 lg:max-w-77.25"
     >
       <p
         class="text-body-small bg-primary-light-3 text-primary-dark-1 leading-body mr-auto rounded-full px-2.5 py-1.25"
@@ -76,10 +76,10 @@ async function updateItemAmount(
         class="h-38.75 w-38.75"
       />
       <div class="w-full">
-        <h4 class="text-h4 font-unbounded text-primary-dark-1">
+        <h4 class="text-h4 font-unbounded text-primary-dark-1 truncate">
           {{ `${item.name}` }}
         </h4>
-        <p class="leading-body text-body text-primary-dark-2">
+        <p class="leading-body text-body text-primary-dark-2 truncate">
           {{ `${item.description}` }}
         </p>
       </div>

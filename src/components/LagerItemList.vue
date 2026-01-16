@@ -62,7 +62,7 @@ onMounted(async () => {
   <div class="w-full px-6">
     <ul
       v-if="!state.isLoading"
-      class="mx-auto grid w-full max-w-240 grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-4"
+      class="mx-auto grid w-full max-w-240 grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-3"
     >
       <LagerItem
         @update-item-amount="updateItemAmount"

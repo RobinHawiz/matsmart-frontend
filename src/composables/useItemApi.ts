@@ -3,6 +3,7 @@ import {
   useDeleteData,
   useGetData,
   usePatchData,
+  usePostData,
   usePutData,
 } from "@/composables/useFetch";
 const apiUrl =
@@ -18,6 +19,10 @@ export class ItemApi {
 
   async getOneItem(id: number): Promise<ItemEntity> {
     return await useGetData<ItemEntity>(`${this.API_BASE_URL}/items/${id}`);
+  }
+
+  async createItem(item: ItemPayload) {
+    await usePostData(`${this.API_BASE_URL}/items`, item);
   }
 
   async updateItemAmount(id: number, amount: number) {

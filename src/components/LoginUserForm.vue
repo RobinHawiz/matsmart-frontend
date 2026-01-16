@@ -23,12 +23,12 @@ const form: UserPayload = reactive({
 
 async function handleSubmit() {
   if (form.username.length < 1 || form.username.length > 50) {
-    toast.error("Användarnamnet måste vara mellan 1 och 50 tecken");
+    toast.error("Användarnamnet måste vara mellan 1 och 50 tecken.");
     return;
   }
 
   if (form.password.length < 1 || form.password.length > 100) {
-    toast.error("Lösenordet måste vara mellan 1 och 100 tecken");
+    toast.error("Lösenordet måste vara mellan 1 och 100 tecken.");
     return;
   }
 
@@ -41,7 +41,7 @@ async function handleSubmit() {
   } catch (err) {
     state.isLoading = false;
     console.log(err);
-    toast.error("Felaktigt användarnamn eller lösenord");
+    toast.error("Felaktigt användarnamn eller lösenord.");
   }
 }
 </script>

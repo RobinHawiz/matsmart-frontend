@@ -38,6 +38,21 @@ export async function usePostData<T>(url: string, payload: T): Promise<string> {
 export async function useDeleteData(url: string): Promise<void> {
   const options: RequestInit = {
     method: "DELETE",
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+  };
+  await useFetch(url, options);
+}
+
+export async function usePutData<T>(url: string, payload: T): Promise<void> {
+  const options: RequestInit = {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+    body: JSON.stringify(payload),
   };
   await useFetch(url, options);
 }

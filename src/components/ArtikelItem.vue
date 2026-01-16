@@ -15,7 +15,10 @@ defineProps({
 
 <template>
   <li>
-    <RouterLink :to="{ name: '' }" aria-label="Redigera artikel">
+    <RouterLink
+      :to="{ name: 'RedigeraArtikel', params: { id: item.id } }"
+      aria-label="Redigera artikel"
+    >
       <article
         class="bg-primary-light-1 border-primary-light-3 hover:shadow-elevation-low flex-center mx-auto max-w-163.5 gap-2.5 rounded-lg border border-solid px-3 py-4 transition-all duration-200 sm:px-2"
       >

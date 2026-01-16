@@ -36,9 +36,7 @@ async function getAllItems() {
 
 async function updateItemAmount(index: number, amountToChange: number) {
   state.items[index].amount += amountToChange;
-  toast.success(
-    `Klart! Lagersaldo för ${state.items[index].name} har uppdaterats.`,
-  );
+  toast.success(`Lagersaldo för ${state.items[index].name} har uppdaterats.`);
 }
 
 onMounted(async () => {

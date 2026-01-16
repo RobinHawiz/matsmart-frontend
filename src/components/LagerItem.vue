@@ -3,14 +3,14 @@ import { ref, type PropType } from "vue";
 import type { ItemEntity } from "@/models/item";
 import { ItemApi } from "@/composables/useItemApi";
 import useDelay from "@/composables/useDelay";
-import $toast from "@/composables/useToast";
+import useToast from "@/composables/useToast";
 import Loader from "@/components/Loader.vue";
 import update from "@/assets/images/update.svg";
 import minus from "@/assets/images/minus.svg";
 import plus from "@/assets/images/plus.svg";
 
 const emit = defineEmits(["updateItemAmount"]);
-const toast = $toast;
+const toast = useToast();
 const isLoading = ref(false);
 let counter = ref(0);
 

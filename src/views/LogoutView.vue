@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
 import { useRouter } from "vue-router";
-import $toast from "@/composables/useToast";
+import useToast from "@/composables/useToast";
 
 const router = useRouter();
-const toast = $toast;
+const toast = useToast();
 
 onMounted(() => {
   localStorage.removeItem("token");

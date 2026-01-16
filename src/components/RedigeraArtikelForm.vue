@@ -6,7 +6,7 @@ import Loader from "@/components/Loader.vue";
 import { UserApi } from "@/composables/useUserApi";
 import { ItemApi } from "@/composables/useItemApi";
 import useDelay from "@/composables/useDelay";
-import $toast from "@/composables/useToast";
+import useToast from "@/composables/useToast";
 import update from "@/assets/images/update.svg";
 import trash from "@/assets/images/trash.svg";
 
@@ -19,7 +19,7 @@ const id = parseInt(route.params.id as string);
 const form = ref({} as ItemPayload);
 const isLoadingForm = ref(true);
 const isLoadingRequest = ref(false);
-const toast = $toast;
+const toast = useToast();
 
 async function updateItem() {
   if (form.value.name.length < 1 || form.value.name.length > 100) {

@@ -6,11 +6,11 @@ import { UserApi } from "@/composables/useUserApi";
 import useDelay from "@/composables/useDelay";
 import Loader from "@/components/Loader.vue";
 import user from "@/assets/images/user.svg";
-import $toast from "@/composables/useToast";
+import useToast from "@/composables/useToast";
 
 const userApi = new UserApi();
 const router = useRouter();
-const toast = $toast;
+const toast = useToast();
 
 const state = reactive({
   isLoading: false,

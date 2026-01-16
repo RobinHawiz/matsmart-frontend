@@ -6,7 +6,7 @@ import Loader from "@/components/Loader.vue";
 import { UserApi } from "@/composables/useUserApi";
 import { ItemApi } from "@/composables/useItemApi";
 import useDelay from "@/composables/useDelay";
-import $toast from "@/composables/useToast";
+import useToast from "@/composables/useToast";
 import plus from "@/assets/images/plus-2.svg";
 
 const userApi = new UserApi();
@@ -16,7 +16,7 @@ const router = useRouter();
 const form = ref({} as ItemPayload);
 form.value.imageUrl = "/images/placeholder.png";
 const isLoadingRequest = ref(false);
-const toast = $toast;
+const toast = useToast();
 
 async function createItem() {
   if (form.value.name.length < 1 || form.value.name.length > 100) {

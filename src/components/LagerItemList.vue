@@ -7,12 +7,12 @@ import { ItemApi } from "@/composables/useItemApi";
 import useDelay from "@/composables/useDelay";
 import LagerItem from "@/components/LagerItem.vue";
 import Loader from "@/components/Loader.vue";
-import $toast from "@/composables/useToast";
+import useToast from "@/composables/useToast";
 
 const userApi = new UserApi();
 const itemApi = new ItemApi();
 const router = useRouter();
-const toast = $toast;
+const toast = useToast();
 
 export type State = {
   items: Array<ItemEntity>;

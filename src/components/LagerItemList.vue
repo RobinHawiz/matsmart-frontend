@@ -27,8 +27,11 @@ const state = reactive<State>({
 async function getAllItems() {
   try {
     state.items = await itemApi.getAllItems();
-  } catch (error) {
-    console.log(error);
+  } catch (err) {
+    console.log(err);
+    toast.error(
+      "Ett oväntat fel inträffade. Försök igen eller kontakta support.",
+    );
   } finally {
     state.isLoading = false;
   }
